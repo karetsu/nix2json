@@ -1,0 +1,6 @@
+#! /usr/bin/env zsh
+
+nix-shell --command "cabal configure --enable-optimisation --enable-library-stripping"
+nix-shell --command "cabal build"
+
+fd -tf 'nix2json' dist* -x mv -u {} ~/.scripts/
